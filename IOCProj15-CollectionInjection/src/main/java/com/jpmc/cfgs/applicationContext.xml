@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dt1" class="java.util.Date" />
+	<bean id="dt2" class="java.util.Date">
+		<property name="year" value="118" />
+		<property name="month" value="06" />
+		<property name="date" value="03" />
+	</bean>
+	<bean id="person" class="com.jpmc.beans.Person">
+		<property name="hobies">
+			<list>
+				<value>Swimming</value>
+				<value>Reading</value>
+				<value>Sleeping</value>
+				<value>Riding</value>
+			</list>
+		</property>
+		<property name="dates">
+			<list>
+				<ref bean="dt1" />
+				<ref bean="dt2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="college" class="com.jpmc.beans.College">
+		<property name="studNames">
+			<list>
+				<value>Pratik</value>
+				<value>Pratik1</value>
+				<value>Pratik2</value>
+				<value>Pratik3</value>
+			</list>
+		</property>
+
+		<property name="listData">
+			<list>
+				<value>laxmi</value>
+				<ref bean="dt1" />
+				<ref bean="dt2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="faculty" class="com.jpmc.beans.Faculty">
+		<property name="phones">
+			<set>
+				<value>8888438864</value>
+				<value>9542048844</value>
+				<value>8888438864</value>
+			</set>
+		</property>
+	</bean>
+	<bean id="university" class="com.jpmc.beans.University">
+		<property name="facultySubjects">
+			<map>
+				<entry>
+					<key>
+						<value>rajesh</value>
+					</key>
+					<value>.net</value>
+				</entry>
+				<entry key="rani" value="php" />
+				<entry key="Raja" value="Java" />
+			</map>
+		</property>
+
+		<property name="meetingDates">
+			<map>
+				<entry key="boardMeetingd" value-ref="dt1" />
+				<entry>
+					<key>
+						<value>traders Meeting</value>
+					</key>
+					<ref bean="dt2" />
+				</entry>
+			</map>
+		</property>
+
+		<property name="mapData">
+			<map>
+				<entry key-ref="dt1" value-ref="dt2" />
+				<entry key="Raja" value="Manager" />
+				<entry key="Tommorow" value-ref="dt2" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="eDetails" class="com.jpmc.beans.EmployeeDetails">
+		<property name="empDesgs">
+			<props>
+				<prop key="Pratik">Manager</prop>
+				<prop key="Umesh">HR</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
