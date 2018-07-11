@@ -19,7 +19,7 @@ public class WishGeneratorTest {
 		// Create IOC Container
 		factory = new XmlBeanFactory(res);
 		// get Bean
-		bean = factory.getBean("st", Student.class);
+		bean = factory.getBean("student", Student.class);
 		// use bean
 		bean.showDetails();
 	}
